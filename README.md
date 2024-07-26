@@ -1,5 +1,4 @@
-# Secure Coding Quiz Hub
-
+# Secure Coding 101 Quizzes
 This repository hosts the Secure Coding Quiz Hub, an interactive platform to test and enhance your knowledge of secure coding practices. 
 
 ## Quizzes Available
