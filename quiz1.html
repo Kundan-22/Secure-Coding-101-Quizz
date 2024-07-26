@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Coding Quiz</title>
+<style>
+  /* General Body Styles */
+  body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+  }
+
+  /* Header Styles */
+  header {
+    background-color: #1e1e1e;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    width: 100%;
+    height: 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #17a2b8;
+  }
+
+  /* Sidebar Styles */
+  #sidebar {
+    background-color: #1e1e1e;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 100;
+  }
+
+  #sidebar h2 {
+    color: #17a2b8;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+
+  #sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  #sidebar ul li {
+    margin-bottom: 15px;
+  }
+
+  #sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+  }
+
+  #sidebar ul li a:hover {
+    color: #17a2b8;
+  }
+
+  /* Quiz Container Styles */
+  #quiz-container {
+    margin-left: 270px; /* Space for the sidebar */
+    margin-top: 80px; /* Space for the header */
+    margin-bottom: 120px;
+    padding: 30px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    background-color: #1e1e1e;
+    max-width: 900px;
+    flex-grow: 1;
+    position: relative;
+  }
+
+  .quiz {
+    margin: 30px 0;
+  }
+
+  .question {
+    margin-bottom: 30px;
+  }
+
+  .question h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+
+  .question ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .question li {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+  }
+
+  .question li label {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Button Styles */
+  .submit-btn, .explain-btn {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .submit-btn {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .submit-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+
+  .explain-btn {
+    background-color: #17a2b8;
+    color: white;
+  }
+
+  .explain-btn:hover {
+    background-color: #138496;
+    transform: scale(1.05);
+  }
+
+  /* Result and Explanation Styles */
+  .result {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  .result.correct {
+    color: #28a745;
+  }
+
+  .result.wrong {
+    color: #dc3545;
+  }
+
+  .explanation {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #2e2e2e;
+    border-left: 5px solid #17a2b8;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+  /* Code Block Styles */
+  pre, code {
+    background-color: #2e2e2e;
+    color: #f8f8f2;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 15px;
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #17a2b8;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .copy-btn:hover {
+    background-color: #138496;
+    transform: scale(1.05);
+  }
+
+  /* Footer Styles */
+  footer {
+    background-color: #1e1e1e;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+  }
+
+  footer a {
+    color: #17a2b8;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1em;
+    transition: color 0.3s;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  .social-links a {
+    margin: 0 10px;
+    font-size: 1em;
+    color: #ffffff;
+    transition: color 0.3s;
+  }
+
+  .social-links a:hover {
+    color: #17a2b8;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Secure Coding Quiz - Quiz 1</h1>
+</header>
+
+<aside id="sidebar">
+  <h2>Quiz List</h2>
+  <ul>
+    <li><a href="#quiz1">Quiz 1</a></li>
+    <li><a href="#quiz2">Quiz 2</a></li>
+    <li><a href="#quiz3">Quiz 3</a></li>
+  </ul>
+</aside>
+
+<div id="quiz-container">
+  <!-- Question sections go here, you can add id attributes to each question for easy navigation -->
+  
+  <div class="quiz" id="question1">
+    <!-- Question 1 -->
+    <div class="question">
+      <h3>Q.1 Which of the following is a best practice to prevent SQL Injection?</h3>
+      <ul>
+        <li><label><input type="radio" name="q1" value="wrong"> Directly concatenate user inputs into SQL queries</label></li>
+        <li><label><input type="radio" name="q1" value="correct"> Use prepared statements with parameterized queries</label></li>
+        <li><label><input type="radio" name="q1" value="wrong"> Disable SQL queries in the application</label></li>
+        <li><label><input type="radio" name="q1" value="wrong"> Allow all user inputs without validation</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q1')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q1')">Explain</button>
+      <p class="result" id="result-q1"></p>
+      <p class="explanation" id="explanation-q1" style="display:none;">Prepared statements with parameterized queries help prevent SQL Injection by separating SQL logic from data inputs.</p>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+      <h3>Q.2 What is the primary purpose of input validation?</h3>
+      <ul>
+        <li><label><input type="radio" name="q2" value="wrong"> To beautify user input</label></li>
+        <li><label><input type="radio" name="q2" value="correct"> To ensure data integrity and security</label></li>
+        <li><label><input type="radio" name="q2" value="wrong"> To save data to the database</label></li>
+        <li><label><input type="radio" name="q2" value="wrong"> To increase application performance</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q2')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q2')">Explain</button>
+      <p class="result" id="result-q2"></p>
+      <p class="explanation" id="explanation-q2" style="display:none;">Input validation ensures that user inputs are correctly formatted and do not contain malicious data that could compromise security.</p>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+      <h3>Q.3 Which of the following is a secure practice when handling user passwords?</h3>
+      <ul>
+        <li><label><input type="radio" name="q3" value="wrong"> Store passwords in plaintext</label></li>
+        <li><label><input type="radio" name="q3" value="wrong"> Encrypt passwords using reversible encryption</label></li>
+        <li><label><input type="radio" name="q3" value="correct"> Hash passwords with a strong hashing algorithm like bcrypt</label></li>
+        <li><label><input type="radio" name="q3" value="wrong"> Store passwords in a spreadsheet</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q3')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q3')">Explain</button>
+      <p class="result" id="result-q3"></p>
+      <p class="explanation" id="explanation-q3" style="display:none;">Hashing passwords with a strong algorithm like bcrypt ensures that even if the password database is compromised, the passwords are not easily recoverable.</p>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+      <h3>Q.4 Identify the secure code snippet for preventing SQL Injection:</h3>
+      <ul>
+        <li>
+          <label>
+            <input type="radio" name="q4" value="wrong">
+            <pre><code>user_input = "'; DROP TABLE users; --"
+query = "SELECT * FROM users WHERE name = '" + user_input + "'"</code></pre>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="q4" value="correct">
+            <pre><code>user_input = "'; DROP TABLE users; --"
+query = "SELECT * FROM users WHERE name = %s"
+cursor.execute(query, (user_input,))</code></pre>
+          </label>
+        </li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q4')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q4')">Explain</button>
+      <p class="result" id="result-q4"></p>
+      <p class="explanation" id="explanation-q4" style="display:none;">Using parameterized queries (`cursor.execute(query, (user_input,))`) prevents SQL Injection by treating user input as a parameter, not part of the SQL command.</p>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+      <h3>Q.5 What is Cross-Site Scripting (XSS)?</h3>
+      <ul>
+        <li><label><input type="radio" name="q5" value="wrong"> A method to inject SQL into databases</label></li>
+        <li><label><input type="radio" name="q5" value="correct"> A vulnerability that allows attackers to inject scripts into web pages viewed by others</label></li>
+        <li><label><input type="radio" name="q5" value="wrong"> A technique for breaking SSL encryption</label></li>
+        <li><label><input type="radio" name="q5" value="wrong"> A method to bypass authentication</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q5')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q5')">Explain</button>
+      <p class="result" id="result-q5"></p>
+      <p class="explanation" id="explanation-q5" style="display:none;">XSS allows attackers to inject malicious scripts into web pages that are then executed in the browser of other users.</p>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question">
+      <h3>Q.6 Identify the secure way to handle user input to prevent XSS:</h3>
+      <ul>
+        <li>
+          <label>
+            <input type="radio" name="q6" value="wrong">
+            <pre><code>document.getElementById('output').innerHTML = userInput;</code></pre>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="q6" value="correct">
+            <pre><code>document.getElementById('output').textContent = userInput;</code></pre>
+          </label>
+        </li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q6')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q6')">Explain</button>
+      <p class="result" id="result-q6"></p>
+      <p class="explanation" id="explanation-q6" style="display:none;">`textContent` escapes any HTML content, thus preventing XSS attacks, whereas `innerHTML` can execute injected scripts.</p>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question">
+      <h3>Q.7 Which HTTP header can help prevent XSS attacks?</h3>
+      <ul>
+        <li><label><input type="radio" name="q7" value="wrong"> Content-Type</label></li>
+        <li><label><input type="radio" name="q7" value="wrong"> X-Content-Type-Options</label></li>
+        <li><label><input type="radio" name="q7" value="correct"> X-XSS-Protection</label></li>
+        <li><label><input type="radio" name="q7" value="wrong"> Cache-Control</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q7')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q7')">Explain</button>
+      <p class="result" id="result-q7"></p>
+      <p class="explanation" id="explanation-q7" style="display:none;">The `X-XSS-Protection` header enables the XSS filter in browsers, which helps mitigate Cross-Site Scripting attacks.</p>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question">
+      <h3>Q.8 Why is it important to keep software dependencies up to date?</h3>
+      <ul>
+        <li><label><input type="radio" name="q8" value="wrong"> To reduce the application's performance</label></li>
+        <li><label><input type="radio" name="q8" value="wrong"> To ensure compatibility with new hardware</label></li>
+        <li><label><input type="radio" name="q8" value="correct"> To patch known vulnerabilities</label></li>
+        <li><label><input type="radio" name="q8" value="wrong"> To add unnecessary features</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q8')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q8')">Explain</button>
+      <p class="result" id="result-q8"></p>
+      <p class="explanation" id="explanation-q8" style="display:none;">Keeping dependencies up to date ensures that known vulnerabilities are patched, reducing the risk of security breaches.</p>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question">
+      <h3>Q.9 Which of the following is a secure practice for error handling?</h3>
+      <ul>
+        <li><label><input type="radio" name="q9" value="wrong"> Display detailed error messages to users</label></li>
+        <li><label><input type="radio" name="q9" value="correct"> Log errors without storing sensitive information</label></li>
+        <li><label><input type="radio" name="q9" value="wrong"> Ignore errors to avoid crashing the application</label></li>
+        <li><label><input type="radio" name="q9" value="wrong"> Send errors to the client in JSON format</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q9')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q9')">Explain</button>
+      <p class="result" id="result-q9"></p>
+      <p class="explanation" id="explanation-q9" style="display:none;">Logging errors without storing sensitive information helps in debugging while preventing the exposure of sensitive data.</p>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question">
+      <h3>Q.10 Identify the secure way to log errors in a web application:</h3>
+      <ul>
+        <li>
+          <label>
+            <input type="radio" name="q10" value="correct">
+            <pre><code>error_log("Error: " . $e->getMessage());</code></pre>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="q10" value="wrong">
+            <pre><code>error_log("Error: Sensitive information - " . $e->getTraceAsString());</code></pre>
+          </label>
+        </li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q10')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q10')">Explain</button>
+      <p class="result" id="result-q10"></p>
+      <p class="explanation" id="explanation-q10" style="display:none;">Option A logs the error message without exposing sensitive trace information, which could be exploited if logged.</p>
+    </div>
+
+    <!-- Question 11 -->
+    <div class="question">
+      <h3>Q.11 What is the principle of least privilege?</h3>
+      <ul>
+        <li><label><input type="radio" name="q11" value="wrong"> Granting users maximum access to resources</label></li>
+        <li><label><input type="radio" name="q11" value="correct"> Granting users only the access necessary for their role</label></li>
+        <li><label><input type="radio" name="q11" value="wrong"> Granting no access to any resources</label></li>
+        <li><label><input type="radio" name="q11" value="wrong"> Granting full access initially and restricting later</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q11')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q11')">Explain</button>
+      <p class="result" id="result-q11"></p>
+      <p class="explanation" id="explanation-q11" style="display:none;">The principle of least privilege ensures users have only the access needed to perform their tasks, reducing the risk of accidental or malicious misuse.</p>
+    </div>
+
+    <!-- Question 12 -->
+    <div class="question">
+      <h3>Q.12 Identify the code snippet that follows the principle of least privilege:</h3>
+      <ul>
+        <li>
+          <label>
+            <input type="radio" name="q12" value="wrong">
+            <pre><code>$connection = new PDO('mysql:host=localhost;dbname=testdb', 'admin', 'password');</code></pre>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="q12" value="correct">
+            <pre><code>$connection = new PDO('mysql:host=localhost;dbname=testdb', 'readonlyuser', 'readonlypassword');</code></pre>
+          </label>
+        </li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q12')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q12')">Explain</button>
+      <p class="result" id="result-q12"></p>
+      <p class="explanation" id="explanation-q12" style="display:none;">Using a read-only user account limits access to what is necessary, adhering to the principle of least privilege.</p>
+    </div>
+
+    <!-- Question 13 -->
+    <div class="question">
+      <h3>Q.13 What is a common method to prevent Cross-Site Request Forgery (CSRF)?</h3>
+      <ul>
+        <li><label><input type="radio" name="q13" value="wrong"> Using HTTPS</label></li>
+        <li><label><input type="radio" name="q13" value="wrong"> Implementing CAPTCHA</label></li>
+        <li><label><input type="radio" name="q13" value="correct"> Using CSRF tokens</label></li>
+        <li><label><input type="radio" name="q13" value="wrong"> Disabling cookies</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q13')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q13')">Explain</button>
+      <p class="result" id="result-q13"></p>
+      <p class="explanation" id="explanation-q13" style="display:none;">CSRF tokens are unique to each session and request, ensuring that the request is legitimate and from an authenticated user.</p>
+    </div>
+
+<!-- Question 14 -->
+<div class="question">
+  <h3>Q.14 Identify the secure code snippet that uses CSRF tokens:</h3>
+  <ul>
+    <li>
+      <label>
+        <input type="radio" name="q14" value="correct">
+        <pre><code>
+&lt;form action="/submit" method="post"&gt;
+  &lt;input type="hidden" name="csrf_token" value="abc123"&gt;
+  &lt;input type="text" name="data"&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;
+        </code></pre>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="q14" value="wrong">
+        <pre><code>
+&lt;form action="/submit" method="post"&gt;
+  &lt;input type="text" name="data"&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;
+        </code></pre>
+      </label>
+    </li>
+  </ul>
+  <button class="submit-btn" onclick="checkAnswer('q14')">Submit</button>
+  <button class="explain-btn" onclick="showExplanation('q14')">Explain</button>
+  <p class="result" id="result-q14"></p>
+  <p class="explanation" id="explanation-q14" style="display:none;">Including a CSRF token in the form ensures that the request is from an authenticated session and helps prevent CSRF attacks.</p>
+</div>
+
+
+    <!-- Question 15 -->
+    <div class="question">
+      <h3>Q.15 What is the purpose of security logging and monitoring?</h3>
+      <ul>
+        <li><label><input type="radio" name="q15" value="wrong"> To store user activity for future analysis</label></li>
+        <li><label><input type="radio" name="q15" value="correct"> To detect and respond to security incidents</label></li>
+        <li><label><input type="radio" name="q15" value="wrong"> To increase application performance</label></li>
+        <li><label><input type="radio" name="q15" value="wrong"> To maintain a record of system crashes</label></li>
+      </ul>
+      <button class="submit-btn" onclick="checkAnswer('q15')">Submit</button>
+      <button class="explain-btn" onclick="showExplanation('q15')">Explain</button>
+      <p class="result" id="result-q15"></p>
+      <p class="explanation" id="explanation-q15" style="display:none;">Security logging and monitoring help detect and respond to security incidents in a timely manner.
+</p>
+    </div>
+  </div>
+    
+    <!-- Other questions follow a similar structure -->
+  </div>
+
+  <!-- Add additional question divs here with corresponding IDs -->
+  
+</div>
+
+<footer>
+  <div class="social-links">
+
+    <a href="https://linkedin.com/in/kundan-dhupkar" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/kundan_dhupkar" target="_blank">X</a>
+    <a href="https://github.com/Kundan-22" target="_blank">GitHub</a>
+
+  </div>
+  <p><a href="https://your-gitbook-link.com" target="_blank">View Full Guide on GitBook</a></p>
+  <p>&copy; 2024 Secure Coding Quiz. All rights reserved.</p>
+</footer>
+
+<script>
+  function checkAnswer(questionId) {
+    const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+    const resultElement = document.getElementById(`result-${questionId}`);
+    if (selectedOption) {
+      if (selectedOption.value === 'correct') {
+        resultElement.textContent = 'Correct!';
+        resultElement.className = 'result correct';
+      } else {
+        resultElement.textContent = 'Wrong answer.';
+        resultElement.className = 'result wrong';
+      }
+    } else {
+      resultElement.textContent = 'Please select an answer.';
+      resultElement.className = 'result wrong';
+    }
+  }
+
+  function showExplanation(questionId) {
+    const explanationElement = document.getElementById(`explanation-${questionId}`);
+    if (explanationElement.style.display === 'none') {
+      explanationElement.style.display = 'block';
+    } else {
+      explanationElement.style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>
