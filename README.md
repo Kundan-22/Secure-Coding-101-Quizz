@@ -1,5 +1,5 @@
 # Secure Coding 101 Quizzes
-This repository hosts the Secure Coding Quiz Hub, an interactive platform to test and enhance your knowledge of secure coding practices. 
+This repository hosts the Secure Coding Quizzes, a platform to test and enhance your knowledge of secure coding practices. 
 
 ## Quizzes Available
 
@@ -9,13 +9,13 @@ This repository hosts the Secure Coding Quiz Hub, an interactive platform to tes
 
 ## Secure Coding Guide
 
-For a detailed guide on secure coding practices, please visit our [Secure Coding Guide](https://yourguideurl.com).
+For a detailed guide on secure coding practices, please visit [Secure Coding Guide](https://yourguideurl.com).
 
 ## Feedback
 
-We welcome any feedback for improvement. If you have suggestions or questions, feel free to reach out via our social media channels:
+I am open for any feedback for improvement. If you have suggestions or questions, feel free to reach out to me via social media channels:
 
-- [Twitter](https://twitter.com/kundan_dhupkar)
+- [ X ](https://twitter.com/kundan_dhupkar)
 - [LinkedIn](https://linkedin.com/in/kundan-dhupkar)
 - [GitHub](https://github.com/Kundan-22)
 
