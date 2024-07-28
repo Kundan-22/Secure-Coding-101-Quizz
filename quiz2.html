@@ -356,10 +356,10 @@
     <div class="question">
       <h3>Q.6 What is the best practice for handling sensitive data in transit?</h3>
      <ul>
-        <li><label><input type="radio" name="q5" value="wrong"> Using HTTP for data transmission</label></li>
-        <li><label><input type="radio" name="q5" value="correct"> Encrypting data with SSL/TLS</label></li>
-        <li><label><input type="radio" name="q5" value="wrong"> Storing data in cookies</label></li>
-        <li><label><input type="radio" name="q5" value="wrong"> Sending data in plaintext</label></li>
+        <li><label><input type="radio" name="q6" value="wrong"> Using HTTP for data transmission</label></li>
+        <li><label><input type="radio" name="q6" value="correct"> Encrypting data with SSL/TLS</label></li>
+        <li><label><input type="radio" name="q6" value="wrong"> Storing data in cookies</label></li>
+        <li><label><input type="radio" name="q6" value="wrong"> Sending data in plaintext</label></li>
       </ul>
 
       <button class="submit-btn" onclick="checkAnswer('q6')">Submit</button>
@@ -428,10 +428,10 @@ bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())</code></pre>
     <div class="question">
       <h3>Q.10 What is the benefit of using multi-factor authentication (MFA)?</h3>
       <ul>
-        <li><label><input type="radio" name="q9" value="wrong"> It reduces the complexity of user passwords</label></li>
-        <li><label><input type="radio" name="q9" value="wrong"> It requires users to remember multiple passwords</label></li>
-        <li><label><input type="radio" name="q9" value="correct"> It adds an extra layer of security beyond just a password</label></li>
-        <li><label><input type="radio" name="q9" value="wrong"> It allows users to bypass password requirements</label></li>
+        <li><label><input type="radio" name="q10" value="wrong"> It reduces the complexity of user passwords</label></li>
+        <li><label><input type="radio" name="q10" value="wrong"> It requires users to remember multiple passwords</label></li>
+        <li><label><input type="radio" name="q10" value="correct"> It adds an extra layer of security beyond just a password</label></li>
+        <li><label><input type="radio" name="q10" value="wrong"> It allows users to bypass password requirements</label></li>
       </ul>
 
       <button class="submit-btn" onclick="checkAnswer('q10')">Submit</button>
@@ -446,7 +446,7 @@ bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())</code></pre>
 <ul>
         <li>
           <label>
-            <input type="radio" name="q4" value="correct">
+            <input type="radio" name="q11" value="correct">
             <pre><code>$input = $_POST['input'];
 if (!preg_match('/^[a-zA-Z0-9]+$/', $input)) {
     die("Invalid input");
@@ -455,7 +455,7 @@ if (!preg_match('/^[a-zA-Z0-9]+$/', $input)) {
         </li>
         <li>
           <label>
-            <input type="radio" name="q4" value="wrong">
+            <input type="radio" name="q11" value="wrong">
             <pre><code>$input = $_POST['input'];
 if (strlen($input) > 100) {
     die("Input too long");
@@ -474,10 +474,10 @@ if (strlen($input) > 100) {
     <div class="question">
       <h3>Q.12 What is the main goal of logging and monitoring security events?</h3>
       <ul>
-        <li><label><input type="radio" name="q9" value="wrong"> To store user activities for future reference</label></li>
-        <li><label><input type="radio" name="q9" value="correct"> To detect and respond to security incidents in real-time</label></li>
-        <li><label><input type="radio" name="q9" value="wrong"> To improve application performance</label></li>
-        <li><label><input type="radio" name="q9" value="wrong"> To maintain a record of system crashes</label></li>
+        <li><label><input type="radio" name="q12" value="wrong"> To store user activities for future reference</label></li>
+        <li><label><input type="radio" name="q12" value="correct"> To detect and respond to security incidents in real-time</label></li>
+        <li><label><input type="radio" name="q12" value="wrong"> To improve application performance</label></li>
+        <li><label><input type="radio" name="q12" value="wrong"> To maintain a record of system crashes</label></li>
       </ul>
 
       <button class="submit-btn" onclick="checkAnswer('q12')">Submit</button>
@@ -492,14 +492,14 @@ if (strlen($input) > 100) {
       <ul>
         <li>
           <label>
-            <input type="radio" name="q4" value="wrong">
+            <input type="radio" name="q13" value="wrong">
             <pre><code>$user_id = $_GET['user_id'];
 $query = "SELECT * FROM users WHERE id = " . $user_id;</code></pre>
           </label>
         </li>
         <li>
           <label>
-            <input type="radio" name="q4" value="correct">
+            <input type="radio" name="q13" value="correct">
             <pre><code>$user_id = $_GET['user_id'];
 $query = "SELECT * FROM users WHERE id = ?";
 $stmt = $db->prepare($query);
@@ -518,10 +518,10 @@ $stmt->execute([$user_id]);</code></pre>
 <div class="question">
   <h3>Q.14 What is the benefit of using secure coding practices?</h3>
   <ul>
-        <li><label><input type="radio" name="q9" value="wrong"> It reduces the time required for development</label></li>
-        <li><label><input type="radio" name="q9" value="correct"> It minimizes the risk of security vulnerabilities in the application</label></li>
-        <li><label><input type="radio" name="q9" value="wrong"> It increases the complexity of the code</label></li>
-        <li><label><input type="radio" name="q9" value="wrong"> It makes the code run faster</label></li>
+        <li><label><input type="radio" name="q14" value="wrong"> It reduces the time required for development</label></li>
+        <li><label><input type="radio" name="q14" value="correct"> It minimizes the risk of security vulnerabilities in the application</label></li>
+        <li><label><input type="radio" name="q14" value="wrong"> It increases the complexity of the code</label></li>
+        <li><label><input type="radio" name="q14" value="wrong"> It makes the code run faster</label></li>
       </ul>
 
   <button class="submit-btn" onclick="checkAnswer('q14')">Submit</button>
