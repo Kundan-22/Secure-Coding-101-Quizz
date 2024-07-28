@@ -266,7 +266,7 @@
   <div class="quiz" id="question1">
     <!-- Question 1 -->
     <div class="question">
-      <h3>What is the primary purpose of implementing rate limiting?</h3>
+      <h3>Q.1 What is the primary purpose of implementing rate limiting?</h3>
       <ul>
         <li><label><input type="radio" name="q1" value="wrong"> To improve application performance</label></li>
         <li><label><input type="radio" name="q1" value="correct"> To prevent automated attacks such as brute force</label></li>
@@ -281,7 +281,7 @@
 
     <!-- Question 2 -->
     <div class="question">
-      <h3>Which of the following helps mitigate the risk of using vulnerable third-party libraries?</h3>
+      <h3>Q.2 Which of the following helps mitigate the risk of using vulnerable third-party libraries?</h3>
       <ul>
         <li><label><input type="radio" name="q2" value="wrong"> Avoiding the use of third-party libraries altogether</label></li>
         <li><label><input type="radio" name="q2" value="correct"> Regularly updating and patching libraries</label></li>
@@ -296,7 +296,7 @@
 
     <!-- Question 3 -->
     <div class="question">
-      <h3>Which of the following techniques helps protect against Cross-Site Scripting (XSS)?</h3>
+      <h3>Q.3 Which of the following techniques helps protect against Cross-Site Scripting (XSS)?</h3>
       <ul>
         <li><label><input type="radio" name="q3" value="wrong"> Validating user inputs server-side only</label></li>
         <li><label><input type="radio" name="q3" value="correct"> Encoding user inputs before rendering them in the browser</label></li>
@@ -311,7 +311,7 @@
 
     <!-- Question 4 -->
     <div class="question">
-      <h3>How can you ensure secure communication between microservices?</h3>
+      <h3>Q.4 How can you ensure secure communication between microservices?</h3>
       <ul>
         <li><label><input type="radio" name="q4" value="wrong"> Using plain HTTP for inter-service communication</label></li>
         <li><label><input type="radio" name="q4" value="correct"> Implementing mutual TLS (mTLS) for authentication and encryption</label></li>
@@ -326,7 +326,7 @@
 
     <!-- Question 5 -->
     <div class="question">
-      <h3>Identify the secure code snippet for protecting against XSS:</h3>
+      <h3>Q.5 Identify the secure code snippet for protecting against XSS:</h3>
       <pre><code id="code-option-a">// Option A
 document.getElementById('output').innerHTML = userInput;</code></pre>
       <pre><code id="code-option-b">// Option B
@@ -343,7 +343,7 @@ document.getElementById('output').textContent = userInput;</code></pre>
 
     <!-- Question 6 -->
     <div class="question">
-      <h3>Which of the following is a secure practice for handling session IDs?</h3>
+      <h3>Q.6 Which of the following is a secure practice for handling session IDs?</h3>
       <ul>
         <li><label><input type="radio" name="q6" value="wrong"> Storing session IDs in URLs</label></li>
         <li><label><input type="radio" name="q6" value="correct"> Storing session IDs in cookies with the HttpOnly and Secure flags</label></li>
@@ -358,7 +358,7 @@ document.getElementById('output').textContent = userInput;</code></pre>
 
     <!-- Question 7 -->
     <div class="question">
-      <h3>Identify the code snippet that properly validates user input to prevent SQL Injection:</h3>
+      <h3>Q.7 Identify the code snippet that properly validates user input to prevent SQL Injection:</h3>
       <pre><code id="code-option-a">// Option A
 $input = $_POST['input'];
 $query = "SELECT * FROM users WHERE username = '$input'";</code></pre>
@@ -379,7 +379,7 @@ $stmt->execute([$input]);</code></pre>
 
     <!-- Question 8 -->
     <div class="question">
-      <h3>What is the benefit of using a secure random number generator for cryptographic purposes?</h3>
+      <h3>Q.8 What is the benefit of using a secure random number generator for cryptographic purposes?</h3>
       <ul>
         <li><label><input type="radio" name="q8" value="wrong"> To increase application performance</label></li>
         <li><label><input type="radio" name="q8" value="correct"> To ensure that generated numbers are truly random and unpredictable</label></li>
@@ -394,7 +394,7 @@ $stmt->execute([$input]);</code></pre>
 
     <!-- Question 9 -->
     <div class="question">
-      <h3>Which of the following headers helps mitigate clickjacking attacks?</h3>
+      <h3>Q.9 Which of the following headers helps mitigate clickjacking attacks?</h3>
       <ul>
         <li><label><input type="radio" name="q9" value="wrong"> X-Content-Type-Options</label></li>
         <li><label><input type="radio" name="q9" value="correct"> X-Frame-Options</label></li>
@@ -409,7 +409,7 @@ $stmt->execute([$input]);</code></pre>
 
     <!-- Question 10 -->
     <div class="question">
-      <h3>Identify the secure code snippet for handling passwords:</h3>
+      <h3>Q.10 Identify the secure code snippet for handling passwords:</h3>
       <pre><code id="code-option-a">// Option A
 import hashlib
 hashlib.sha256(password.encode('utf-8')).hexdigest()</code></pre>
@@ -428,7 +428,7 @@ bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())</code></pre>
 
     <!-- Question 11 -->
     <div class="question">
-      <h3>Which practice helps in ensuring secure code review?</h3>
+      <h3>Q.11 Which practice helps in ensuring secure code review?</h3>
       <ul>
         <li><label><input type="radio" name="q11" value="wrong"> Skipping the code review process for trusted developers</label></li>
         <li><label><input type="radio" name="q11" value="correct"> Using automated tools to complement manual reviews</label></li>
@@ -443,7 +443,7 @@ bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())</code></pre>
 
     <!-- Question 12 -->
     <div class="question">
-      <h3>What is a common security risk of using weak cryptographic algorithms?</h3>
+      <h3>Q.12 What is a common security risk of using weak cryptographic algorithms?</h3>
       <ul>
         <li><label><input type="radio" name="q12" value="wrong"> Reduced application performance</label></li>
         <li><label><input type="radio" name="q12" value="wrong"> Increased code complexity</label></li>
@@ -458,7 +458,7 @@ bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())</code></pre>
 
     <!-- Question 13 -->
     <div class="question">
-      <h3>Identify the secure code snippet for preventing CSRF attacks:</h3>
+      <h3>Q.13 Identify the secure code snippet for preventing CSRF attacks:</h3>
       <pre><code id="code-option-a">// Option A
 <form action="/submit" method="post">
   <input type="hidden" name="csrf_token" value="abc123">
@@ -482,7 +482,7 @@ bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())</code></pre>
 
     <!-- Question 14 -->
     <div class="question">
-      <h3>What is the purpose of implementing Content Security Policy (CSP)?</h3>
+      <h3>Q.14 What is the purpose of implementing Content Security Policy (CSP)?</h3>
       <ul>
         <li><label><input type="radio" name="q14" value="wrong"> To enhance application performance</label></li>
         <li><label><input type="radio" name="q14" value="wrong"> To prevent unauthorized access to user data</label></li>
@@ -497,7 +497,7 @@ bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())</code></pre>
 
     <!-- Question 15 -->
     <div class="question">
-      <h3>Which of the following practices helps in securing API endpoints?</h3>
+      <h3>Q.15 Which of the following practices helps in securing API endpoints?</h3>
       <ul>
         <li><label><input type="radio" name="q15" value="wrong"> Using GET requests for all operations</label></li>
         <li><label><input type="radio" name="q15" value="correct"> Implementing proper authentication and authorization mechanisms</label></li>
