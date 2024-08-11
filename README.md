@@ -9,7 +9,7 @@ This repository hosts the Secure Coding Quizzes, a platform to test and enhance 
 
 ## Secure Coding Guide
 
-For a detailed guide on secure coding practices, please visit [Secure Coding Guide](https://yourguideurl.com).
+For a detailed guide on secure coding practices, please visit [Secure Coding Guide](https://kundan22.gitbook.io/secure-coding-101).
 
 ## Feedback
 
