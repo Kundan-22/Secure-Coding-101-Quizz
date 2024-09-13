@@ -17,5 +17,5 @@ I am open for any feedback for improvement. If you have suggestions or questions
 
 - [ X ](https://twitter.com/kundan_dhupkar)
 - [LinkedIn](https://linkedin.com/in/kundan-dhupkar)
-- [GitHub](https://github.com/Kundan-22)
+- [GitHub](https://github.com/kundandhupkar)
 
