@@ -3,9 +3,9 @@ This repository hosts the Secure Coding Quizzes, a platform to test and enhance 
 
 ## Quizzes Available
 
-- [Quiz 1](https://kundan-22.github.io/Secure-Coding-101-Quizz/quiz1.html)
-- [Quiz 2](https://kundan-22.github.io/Secure-Coding-101-Quizz/quiz2.html)
-- [Quiz 2](https://kundan-22.github.io/Secure-Coding-101-Quizz/quiz3.html)
+- [Quiz 1](https://kundandhupkar.github.io/Secure-Coding-101-Quizz/quiz1.html)
+- [Quiz 2](https://kundandhupkar.github.io/Secure-Coding-101-Quizz/quiz2.html)
+- [Quiz 2](https://kundandhupkar.github.io/Secure-Coding-101-Quizz/quiz3.html)
 
 ## Secure Coding Guide
 
